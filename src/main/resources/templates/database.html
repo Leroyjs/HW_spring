@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DataBase</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+          integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+</head>
+<body>
+<a class="pure-button" th:href="@{/mock-data}">
+    Add mock-data
+</a>
+<table class="pure-table pure-table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">first_name</th>
+        <th scope="col">second_name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${parents.isEmpty()}">
+        <td colspan="3">Список пуст</td>
+    </tr>
+    <tr th:each="parent : ${parents}">
+        <td><span th:text="${parent.getId()}"></span></td>
+        <td><span th:text="${parent.getFirstName()}"></span></td>
+        <td><span th:text="${parent.getSecondName()}"></span></td>
+    </tr>
+    </tbody>
+</table>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
